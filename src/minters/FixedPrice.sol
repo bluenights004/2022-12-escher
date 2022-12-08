@@ -55,7 +55,7 @@ contract FixedPrice is Initializable, OwnableUpgradeable, ISale {
     /// @notice buy from a fixed price sale after the sale starts
     /// @param _amount the amount of editions to buy
     function buy(uint256 _amount) external payable {
-        Sale memory sale_ = sale;
+        Sale memory sale_ = sale; //pertains to sale info
         IEscher721 nft = IEscher721(sale_.edition);
         require(block.timestamp >= sale_.startTime, "TOO SOON");
         require(_amount * sale_.price == msg.value, "WRONG PRICE");
